@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters":
+  {
+    "adminUserName":
+    {
+      "value": "myadmin"
+    },
+    "certificateThumbprint":
+    {
+      "value": "CD961416EE93DC8095095896B6FB1B5EB86E9C80"
+    },
+    "sourceVaultResourceId":
+    {
+      "value": "/subscriptions/678fbfe279a74689839d0a187e5b6b1a/resourceGroups/Moodys/providers/Microsoft.KeyVault/vaults/ADDemoKeyVault"
+    },
+    "certificateUrlValue":
+    {
+      "value": "https://addemokeyvault.vault.azure.net:443/secrets/finastrasfcert/19a2ff6e95074d6abc22bfefe532f4a5"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/678fbfe2-79a7-4689-839d-0a187e5b6b1a/resourceGroups/Moodys/providers/Microsoft.KeyVault/vaults/ADDemoKeyVault"
+        },
+        "secretName": "adminPassword"
+      }
+    },
+    "workspaceId": {
+      "value": "7212cf97-69ba-44d6-8370-c8fbf4ba9cd3"
+    },
+    "workspaceKey": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/678fbfe2-79a7-4689-839d-0a187e5b6b1a/resourceGroups/Moodys/providers/Microsoft.KeyVault/vaults/ADDemoKeyVault"
+        },
+        "secretName": "finastraOMSkey"
+      }
+    }
+  }
+}
